@@ -1,4 +1,4 @@
-import Taro, { Component, Config } from '@tarojs/taro'
+import Taro, {Component, Config} from '@tarojs/taro'
 import Index from './pages/index'
 
 import './app.scss'
@@ -21,24 +21,27 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    }
+    },
+  }
+  componentDidMount() {
   }
 
-  componentDidMount () {}
+  componentDidShow() {
+  }
 
-  componentDidShow () {}
+  componentDidHide() {
+  }
 
-  componentDidHide () {}
-
-  componentDidCatchError () {}
+  componentDidCatchError() {
+  }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
-      <Index />
+      <Index/>
     )
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App/>, document.getElementById('app'))

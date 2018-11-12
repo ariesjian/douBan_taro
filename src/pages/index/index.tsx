@@ -1,9 +1,16 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, {Component, Config} from '@tarojs/taro'
+import {View, Text} from '@tarojs/components'
+import {getInTheaters} from '../../service/api'
 import './index.scss'
 
 export default class Index extends Component {
-
+  constructor (props) {
+    super(props)
+  }
+  state = {
+    list: [], // 广告列表
+    start: 1,
+  }
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -14,21 +21,38 @@ export default class Index extends Component {
   config: Config = {
     navigationBarTitleText: '首页'
   }
+  componentWillMount() {
 
-  componentWillMount () { }
+  }
 
-  componentDidMount () { }
+  componentDidMount() {
+    //    this.getList();
+  }
 
-  componentWillUnmount () { }
+  componentWillUnmount() {
+  }
 
-  componentDidShow () { }
+  componentDidShow() {
+  }
 
-  componentDidHide () { }
+  componentDidHide() {
+  }
 
-  render () {
+  getList = async () => {
+    const params = {
+      apikey: "0b2bdeda43b5688921839c8ecb20399b",
+      city: "上海",
+      start: this.state.start,
+      count: 15
+    };
+    const res = await getInTheaters(params);
+    console.log(res, 'http://www.cnblogs.com/oskyhg/p/9749373.html')
+  };
+
+  render() {
     return (
       <View className='index'>
-        <Text>这是一个首页 http://www.cnblogs.com/oskyhg/p/9749373.html</Text>
+        <Text>这是一个首页 </Text>
       </View>
     )
   }

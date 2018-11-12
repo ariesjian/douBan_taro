@@ -26,7 +26,7 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
-    //    this.getList();
+       this.getList();
   }
 
   componentWillUnmount() {

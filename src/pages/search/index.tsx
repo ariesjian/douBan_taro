@@ -12,8 +12,15 @@ export default class Index extends Component {
     list: [], // 广告列表
     start: 1,
   }
+  /**
+   * 指定config的类型声明为: Taro.Config
+   *
+   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
+   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
+   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
+   */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '搜索'
   }
 
   componentWillMount() {
@@ -36,18 +43,12 @@ export default class Index extends Component {
     const params: object = {
       apikey: "0b2bdeda43b5688921839c8ecb20399b",
       start: this.state.start,
-      city:'上海',
       count: 15
     };
     const res = await getInTheaters(params);
     this.setState({
       list: res.data.subjects
     });
-  };
-  goto = (id) => { // 去详情页面
-    Taro.navigateTo({
-      url: '/pages/detail/index?id=' + id,
-    })
   };
 
   render() {
@@ -65,7 +66,7 @@ export default class Index extends Component {
           >
             {list.length && list.map((item, index) => {
               return (
-                <SwiperItem key={index} className='swiper_item' onClick={this.goto.bind(this,item.id)}>
+                <SwiperItem key={index} className='swiper_item'>
                   <View className='big_image_wrap'>
                     <Image mode='aspectFill' className='big_image' src={item.images.small}/>
                     <View className='big_title'>{item.title}</View>
@@ -80,7 +81,7 @@ export default class Index extends Component {
         <View className='content'>
           {list.length && list.map((item, index) => {
             return (
-              <View className='list' key={index} onClick={this.goto.bind(this,item.id)}>
+              <View className='list' key={index}>
                 <View className='imag_wrap'>
                   <Image mode='aspectFill' className='pic' src={item.images.small}/>
                   <Text className='vip_logo'>VIP</Text>

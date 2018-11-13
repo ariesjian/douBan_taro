@@ -1,0 +1,118 @@
+.container{
+  width: 100%;
+  height:100% ;
+  .top{
+    width: 750rpx;
+    height: 400rpx;
+    .swipers{
+      width: 750rpx;
+      height: 400rpx;
+      .swiper_item{
+        width: 750rpx;
+        height: 400rpx;
+        .big_image_wrap{
+          width: 750rpx;
+          height: 400rpx;
+          position:relative;
+          .big_image{
+            width: 750rpx;
+            height: 400rpx;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+          .big_title{
+            width: 650rpx;
+            height: 100rpx;
+            text-align: center;
+            position: absolute;
+            left: 50rpx;
+            top: 290rpx;
+            color: white;
+            font-size: 45rpx;
+            letter-spacing: 5rpx;
+          }
+        }
+      }
+    }
+  }
+  .content{
+    width: 750rpx;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 30rpx;
+    .list{
+      width: 250rpx;
+      height: 450rpx;
+      .imag_wrap{
+        width: 250rpx;
+        height: 300rpx;
+        position: relative;
+        .pic{
+          width: 250rpx;
+          height: 300rpx;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .vip_logo{
+          width: 80rpx;
+          height: 30rpx;
+          position: absolute;
+          right: 10rpx;
+          top: 10rpx;
+          font-size: 25rpx;
+          text-align: center;
+          line-height: 30rpx;
+          background: yellowgreen;
+          color: white;
+          border-radius: 5rpx;
+        }
+        .average{
+          width: 100rpx;
+          height: 40rpx;
+          position: absolute;
+          right: 10rpx;
+          top: 240rpx;
+          font-size: 30rpx;
+          text-align: center;
+          line-height: 40rpx;
+          font-weight: 500;
+          color: yellowgreen;
+        }
+      }
+      .description{
+        width: 250rpx;
+        height: 130rpx;
+        .title{
+          margin-top: 30rpx;
+          width: 210rpx;
+          margin-left: 20rpx;
+          height: 50rpx;
+          font-size: 28rpx;
+          text-align: center;
+          line-height: 40rpx;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .types{
+          width: 210rpx;
+          margin-left: 20rpx;
+          height:40rpx;
+          display: flex;
+          justify-content: center;
+          .type{
+            width: 60rpx;
+            height: 40rpx;
+            text-align: center;
+            font-size: 22rpx;
+            line-height: 40rpx;
+          }
+        }
+      }
+    }
+  }
+}

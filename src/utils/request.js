@@ -22,7 +22,6 @@ export default function request(url, options) {
       ...newOptions.header
     }
   }
-  console.log(url, options);
 
   return Taro.request({url, ...newOptions})
 

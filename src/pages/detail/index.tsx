@@ -1,5 +1,5 @@
 import Taro, {Component, Config} from '@tarojs/taro'
-import {View, Text, Image,ScrollView} from '@tarojs/components'
+import {View, Text, Image, ScrollView} from '@tarojs/components'
 import {detail} from '../../service/api'
 import './index.scss'
 
@@ -66,6 +66,10 @@ export default class Index extends Component {
               </View>
               <View className='rights'>
                 更多操作
+              {/*  <web-view src={obj.mobile_url}>
+
+                </web-view>*/}
+
               </View>
             </View>
           </View>
@@ -76,24 +80,24 @@ export default class Index extends Component {
             <ScrollView
               scrollX={true}
               className='photo_wraps'>
-              {obj.casts && obj.casts.map((item,index)=>{
-                return(
+              {obj.casts && obj.casts.map((item, index) => {
+                return (
                   <Image key={index} mode='aspectFill' className='photo' src={item.avatars.small}/>
                 )
-              }) }
+              })}
             </ScrollView>
           </View>
         </View>
         <View className='bottom'>
           <View className='title_b'>短评</View>
           <View className='bottom_wrap'>
-            {obj.popular_comments && obj.popular_comments.map((i,v)=>{
-              return(
-                <View className='item' key={v}>
+            {obj.popular_comments && obj.popular_comments.map((v, i) => {
+              return (
+                <View className='item' key={i}>
                   <View className='item_left'><Image mode='aspectFill' className='pic' src={v.author.avatar}/></View>
                   <View className='item_right'>
-                    <View className='name'>{v.author.name} 评分{v.author.rating.max}</View>
-                    <View className='deatil'>{v.author.content}</View>
+                    <View className='name'>{v.author.name} 评分{v.rating.max}</View>
+                    <View className='deatil'>{v.content}</View>
                   </View>
                 </View>
               )
